@@ -12,5 +12,9 @@
 
 <img width="773" alt="Screenshot 2023-06-06 at 12 40 54" src="https://github.com/redjules/Deploy-an-Application-to-Kubernetes-in-Google-Cloud-using-GKE/assets/106017493/1764f425-a451-48ba-a285-7070e1a048bf">
 
+<img width="712" alt="Screenshot 2023-06-06 at 12 41 36" src="https://github.com/redjules/Deploy-an-Application-to-Kubernetes-in-Google-Cloud-using-GKE/assets/106017493/35bba02e-f444-4d02-8f58-bbae4978db36">
+
+
+
 
 
