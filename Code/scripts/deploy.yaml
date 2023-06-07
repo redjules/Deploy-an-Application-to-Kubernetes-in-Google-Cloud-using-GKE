@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: data-pipeline
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+  creationTimestamp: null
+  generation: 1
+  labels:
+    app: data-pipeline
+    tier: backend
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: data-pipeline
+      tier: backend
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: data-pipeline
+        tier: backend
+    spec:
+      containers:
+      - image: gcr.io/eternal-sylph-336115/dezyreimage:tag1
+        imagePullPolicy: Always
+        name: data-pipeline
+        env:
+        - name: GOOGLE_APPLICATION_CREDENTIALS
+          value: "eternal-sylph-336115-ecfcba713fbc.json"

@@ -1,0 +1,17 @@
+# 
+FROM python:3.9
+
+# 
+WORKDIR /code
+
+# 
+COPY ./requirements.txt /code/requirements.txt
+COPY ./eternal-sylph-336115-ecfcba713fbc.json /code/eternal-sylph-336115-ecfcba713fbc.json
+# 
+RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+
+# 
+COPY ./app /code/app
+ENV GOOGLE_APPLICATION_CREDENTIALS=eternal-sylph-336115-ecfcba713fbc.json
+# 
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]

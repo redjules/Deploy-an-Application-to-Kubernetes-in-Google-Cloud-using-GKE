@@ -1,0 +1,16 @@
+import requests
+def main(event, context):
+    """Triggered by a change to a Cloud Storage bucket.
+    Args:
+         event (dict): Event payload.
+         context (google.cloud.functions.Context): Metadata for the event.
+    """
+    file = event
+    bucket_name = file['bucket']
+    blob_name = file['name']
+    filepath = "gs://"+bucket_name+"/"+blob_name
+    if (blob_name.split('/')[0]=='data'):
+        print(f"Processing file: {file['name']}.")
+        url = 'http://35.225.92.82/run/?input_path='+filepath+'&side_input_path=gs://dezyre-bucket/data/airlines.csv&table=dataset1.flights&error_table=dataset1.error'
+        data = ""
+        response = requests.post(url, data=data)
